@@ -10,22 +10,19 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◍</text></svg>" />
 </head>
 <body>
-  <div class="layout">
-    <aside class="sidebar">
-      <div class="profile">
-        <a class="avatar" href="{{ get_url(path='/') }}" aria-label="Homepage">
-          <!-- Replace static/images/photo.jpg with a personal photo (square, >=512px) -->
-          <span class="avatar-fallback" aria-hidden="true">LC</span>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <a class="avatar avatar--small has-photo" href="{{ get_url(path='/') }}" aria-label="Homepage">
+          <img src="{{ get_url(path=config.extra.avatar) }}" alt="aegroto GitHub avatar" width="40" height="40" />
         </a>
-        <div class="profile-text">
-          <a class="name" href="{{ get_url(path='/') }}">{{ config.extra.name }}</a>
-          <p class="role">{{ config.extra.role }}</p>
-          <p class="affil">{{ config.extra.affiliation_short }}</p>
+        <div class="brand-text">
+          <a class="name name--small" href="{{ get_url(path='/') }}">{{ config.extra.name }}</a>
+          <p class="affil affil--small">{{ config.extra.affiliation_short }}</p>
         </div>
       </div>
 
       <nav class="menu" aria-label="Main menu">
-        <p class="menu-label">:::: MENU ::::</p>
         <ul>
           {% for item in config.extra.menu %}
           {% set item_url = get_url(path=item.url) %}
@@ -36,23 +33,18 @@
           {% endfor %}
         </ul>
       </nav>
+    </div>
+  </header>
 
-      <div class="side-links">
-        <ul>
-          <li><a href="{{ config.extra.scholar }}">Google Scholar</a></li>
-          <li><a href="{{ config.extra.github }}">GitHub</a></li>
-          <li><a href="{{ config.extra.linkedin }}">LinkedIn</a></li>
-          <li><a href="{{ config.extra.dmi_profile }}">DMI profile</a></li>
-        </ul>
-        <p class="side-mail"><a href="mailto:{{ config.extra.email }}">{{ config.extra.email }}</a></p>
-      </div>
-    </aside>
-
+  <div class="layout layout--top">
     <main class="content">
       {% block content %}{% endblock content %}
       <footer class="footer">
-        <p>© {{ config.extra.name }} — {{ config.extra.footer_note }}</p>
-        <p class="built">Built with <a href="https://www.getzola.org/">Zola</a>. Content partly synced from <a href="{{ config.extra.scholar }}">Scholar</a> and <a href="{{ config.extra.github }}">GitHub</a>.</p>
+        <ul class="footer-links">
+          <li><a href="{{ config.extra.scholar }}">Google Scholar</a></li>
+          <li><a href="{{ config.extra.github }}">GitHub</a></li>
+          <li><a href="mailto:{{ config.extra.email }}">{{ config.extra.email }}</a></li>
+        </ul>
       </footer>
     </main>
   </div>

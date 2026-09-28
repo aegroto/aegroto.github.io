@@ -13,22 +13,21 @@ smart_punctuation = true
 external_links_target_blank = true
 
 [extra]
-name = "Lorenzo Catania"
+name = "Lorenzo Catania / aegroto"
 role = "Research Fellow in Computer Science"
 affiliation = "Department of Mathematics and Computer Science (DMI), University of Catania"
 affiliation_short = "University of Catania — DMI"
-email = "lorenzo.catania@phd.unict.it"
+email = "lorenzo.catania@unict.it"
 github = "https://github.com/aegroto/"
 scholar = "https://scholar.google.com/citations?user=bp4W1qoAAAAJ&hl=it"
 linkedin = "https://www.linkedin.com/in/lorenzo-catania-aegroto/"
 dmi_profile = "https://web.dmi.unict.it/assegnisti-di-ricerca/lorenzo.catania?eng"
+avatar = "images/avatar.png"
+photo = "images/photo.jpg"
 
 menu = [
   { name = "Homepage", url = "/" },
   { name = "Publications", url = "/publications/" },
   { name = "Teaching", url = "/teaching/" },
-  { name = "Projects", url = "/projects/" },
-  { name = "Contacts", url = "/contacts/" },
+  { name = "Open Source", url = "/open-source/" },
 ]
-
-footer_note = "Department of Mathematics and Computer Science — University of Catania"

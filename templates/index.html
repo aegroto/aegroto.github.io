@@ -2,7 +2,14 @@
 
 {% block content %}
 <article class="page home">
-  <h1 class="page-title">{{ section.title }}</h1>
+  <div class="home-hero">
+    <img class="profile-photo" src="{{ get_url(path=config.extra.photo) }}" alt="Lorenzo Catania" width="1200" height="800" />
+    <div class="home-hero-text">
+      <h1 class="page-title">{{ section.title }}</h1>
+      <p class="lead">{{ section.extra.intro_role }}</p>
+      <div class="home-intro">{{ section.extra.intro_text | markdown | safe }}</div>
+    </div>
+  </div>
   {{ section.content | safe }}
 </article>
 {% endblock content %}
