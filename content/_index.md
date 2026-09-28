@@ -8,7 +8,7 @@ intro_text = "I work on **Implicit Neural Representations (INRs) and overfitted 
 +++
 
 I am affiliated with the [IPLab](https://iplab.dmi.unict.it/) research group. I received my PhD in Computer Science from the University of Catania in 2025 with the thesis [*Implicit Neural Representations for Multimedia Compression*](/publications/#thesis). 
-During my Ph.D. I have visited the [MUEXlab](https://muexlab.fer.hr/) group @ University of Zagreb, working on the Quality-of-Experience in remote rendering systems.
+During my Ph.D. I have visited the [MUEXlab](https://muexlab.fer.hr/) group @ University of Zagreb, working on the Quality-of-Experience in constrained video streaming systems.
 
 I am Principal Investigator of the [ISCRA](https://www.hpc.cineca.it/hpc-access/access-cineca-resources/iscra-projects/)--funded research project *Implicit Neural Representations for the Future of Multimedia (INR-FM)*.
 
