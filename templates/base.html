@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% if page is defined and page.title %}{{ page.title }} — {% elif section.title and not section.is_index %}{{ section.title }} — {% endif %}{{ config.title }}</title>
+  <meta name="description" content="{% if page is defined and page.description %}{{ page.description }}{% elif section.description %}{{ section.description }}{% else %}{{ config.description }}{% endif %}" />
+  <meta name="author" content="{{ config.author }}" />
+  <link rel="stylesheet" href="{{ get_url(path='css/style.css') }}" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◍</text></svg>" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="profile">
+        <a class="avatar" href="{{ get_url(path='/') }}" aria-label="Homepage">
+          <!-- Replace static/images/photo.jpg with a personal photo (square, >=512px) -->
+          <span class="avatar-fallback" aria-hidden="true">LC</span>
+        </a>
+        <div class="profile-text">
+          <a class="name" href="{{ get_url(path='/') }}">{{ config.extra.name }}</a>
+          <p class="role">{{ config.extra.role }}</p>
+          <p class="affil">{{ config.extra.affiliation_short }}</p>
+        </div>
+      </div>
+
+      <nav class="menu" aria-label="Main menu">
+        <p class="menu-label">:::: MENU ::::</p>
+        <ul>
+          {% for item in config.extra.menu %}
+          {% set item_url = get_url(path=item.url) %}
+          <li>
+            <a href="{{ item_url }}"
+               {% if current_path and current_path == item.url %}class="active" aria-current="page"{% endif %}>{{ item.name }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </nav>
+
+      <div class="side-links">
+        <ul>
+          <li><a href="{{ config.extra.scholar }}">Google Scholar</a></li>
+          <li><a href="{{ config.extra.github }}">GitHub</a></li>
+          <li><a href="{{ config.extra.linkedin }}">LinkedIn</a></li>
+          <li><a href="{{ config.extra.dmi_profile }}">DMI profile</a></li>
+        </ul>
+        <p class="side-mail"><a href="mailto:{{ config.extra.email }}">{{ config.extra.email }}</a></p>
+      </div>
+    </aside>
+
+    <main class="content">
+      {% block content %}{% endblock content %}
+      <footer class="footer">
+        <p>© {{ config.extra.name }} — {{ config.extra.footer_note }}</p>
+        <p class="built">Built with <a href="https://www.getzola.org/">Zola</a>. Content partly synced from <a href="{{ config.extra.scholar }}">Scholar</a> and <a href="{{ config.extra.github }}">GitHub</a>.</p>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
